@@ -1,0 +1,18 @@
+name: test
+on:
+  push:
+      branches-ignore:
+        - 'main'
+      tags-ignore:
+        - '**'
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+    name: Test
+    steps:
+      - uses: actions/checkout@v3
+      - name: test setup-dyson
+        uses: ./

@@ -1,0 +1,12 @@
+name: Setup dyson command
+author: "RossyWhite"
+description: "Setup dyson command"
+runs:
+  using: "composite"
+  steps:
+    - name: "Install dyson"
+      shell: bash
+      run: curl -sfL https://raw.githubusercontent.com/RossyWhite/dyson/main/install.sh | sh
+    - name: "Check Installation"
+      shell: bash
+      run: dyson --help
